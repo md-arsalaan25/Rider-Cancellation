@@ -5,13 +5,12 @@ The data was highly skewed and filled with a lot of NaN values which we tried to
 
 We added some features because we were left with very few of them after dropping the useless ones:
 
-The time difference between order time and allot time
-The time difference between order time and accept time
-The day of the week
-The hour of the day
-If it's the start of the month (Boolean)
+- The time difference between order time and allot time
+- The time difference between order time and accept time
+- The day of the week
+- The hour of the day
+- If it's the start of the month (Boolean)
+
 After exploring the data, we trained various models like XGBClassifier, CatboostClassifier, KNNClassifier, etc and also their ensembles but the roc_auc_score was always less than 0.65. So we tried AutoXGB on our data which boosted our score to 0.77 on the leaderboard.
-
 We further tried smoting(very useful method for balancing skewed data) but it was overfitting the data (gave roc_auc of 0.91 in validation and 0.7 in lb)
-
 Lastly, we tried stacking around 20 AutoXGB models but unfortunately it didn't work for us and we were left with no time to try that again.
